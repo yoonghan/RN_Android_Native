@@ -12,9 +12,9 @@ npm install
 
 ## Goals
 Let's say there is a layout in pure android, e.g. a button. What should the steps be to integrate into existing React Native project.
-This project assumes that the React Native project is already created. 
+This project assumes that the React Native project is already created. *NOTE*: If you can master this, the React Module will be a walk in the park.
 ![alt text](gitimg/sample.png?raw=true)
-*NOTE*: If you can master this, the React Module will be a walk in the park.
+
 
 ## Steps
 These are the steps:
