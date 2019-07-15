@@ -1,3 +1,6 @@
+#Note
+Seems like there was alot of people forking out from this project and it has been 2 years. Do open an issue if there is. I will try my best to fix it.
+
 # Plain code for React Native UI
 This project is to show the integration between React Native with a custom native Android component.
 [Reference](https://facebook.github.io/react-native/docs/native-components-android.html)
