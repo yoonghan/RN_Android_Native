@@ -12,6 +12,4 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "sample_android_ui";
     }
-
-
 }

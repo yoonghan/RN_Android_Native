@@ -1,6 +1,3 @@
-#Note
-Seems like there was alot of people forking out from this project and it has been 2 years. Do open an issue if there is. I will try my best to fix it.
-
 # Plain code for React Native UI
 This project is to show the integration between React Native with a custom native Android component.
 [Reference](https://facebook.github.io/react-native/docs/native-components-android.html)
@@ -12,10 +9,21 @@ This project is to show the integration between React Native with a custom nativ
 ```
 npm install
 ```
+3. Install android studio.
+4. Checkout React-Native Website getting started to configure Android studio.
+
+```
+# Make sure you create a file .bash_profile in $HOME for MacOS and restart the terminal.
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+```
 
 ## Goals
 Let's say there is a layout in pure android, e.g. a button. This is the walkthrought to get the module working in React Native project.
-This project assumes that the React Native project is already created. 
+This project assumes that the React Native project is already created.
 
 *NOTE*: If you can master this, the React Native Module will be a walk in the park.
 
@@ -31,13 +39,12 @@ These are the steps:
 5. Create a ReactPackage and add the react ViewManager into "createViewManagers" method. Sample in com.sample_android_uid.MyCustomPackage.
 6. Add the Package into MainApplication to tie the ReactPackage to the loader. Sample in MainApplication.java
 ```java
-   @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-              new MyCustomPackage()
-      );
-    }
+  @Override
+  protected List<ReactPackage> getPackages() {
+    ...
+    packages.add(new MyCustomPackage()); //Added here.
+    return packages;
+  }
 ```
 7. Define in Javascript, a custom JS view. Sample JS created is CustomView.js
 ```javascript
