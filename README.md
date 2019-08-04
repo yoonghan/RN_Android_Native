@@ -22,7 +22,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
 ## Goals
-Let's say there is a layout in pure android, e.g. a button. This is the walkthrought to get the module working in React Native project.
+Let's say there is a layout in pure android, e.g. a button. This is the walkthrough to get the module working in React Native project.
 This project assumes that the React Native project is already created.
 
 *NOTE*: If you can master this, the React Native Module will be a walk in the park.
@@ -32,10 +32,10 @@ This project assumes that the React Native project is already created.
 
 ## Steps
 These are the steps:
-1. Open Android studio and point to android/ folder within this project. Allow gradle to run and fix those android error if exist.
-2. Create the XML (or layout is build via code without XML ignore step 2) of the layout, Sample is in res/layout/multiplecamerastreamlayout.xml
-3. Create a View to inflate the XML. Sample is in com.sample_android_ui.CustomView.
-4. Create a View Manager that will link the Custom View, here is the place to expose the properties. Sample is in com.sample_android_ui.MyCustomReactViewManager.
+1. Open Android studio and point to android/ folder within this project. Allow gradle to run and fix those android error if exist. If the code works, the green "Play"/"Debug" button is enabled in Android Studio. Else you will need to make time to fix this...this is the most difficult part for new Android coders.
+2. Create the XML (or create a layout via android code) of the layout, Sample is in res/layout/multiplecamerastreamlayout.xml
+3. Create a View to inflate the XML. Sample is in com.sample_android_ui.CustomView. *BONUS:* Added a click action.
+4. Create a View Manager that will link the Custom View, here is the place to expose the properties. Sample is in com.sample_android_ui.MyCustomReactViewManager. *BONUS:* Added an optional @ReactProps for parameter passing.
 5. Create a ReactPackage and add the react ViewManager into "createViewManagers" method. Sample in com.sample_android_uid.MyCustomPackage.
 6. Add the Package into MainApplication to tie the ReactPackage to the loader. Sample in MainApplication.java
 ```java
@@ -53,7 +53,10 @@ These are the steps:
   import PropTypes from 'prop-types';
 
   module.exports = requireNativeComponent('MyCustomReactViewManager', null);
-  //If View Manager have react properties the code will be module.exports = requireNativeComponent('MyCustomReactViewManager', {name: 'AnynameWillDoItsforLog',propTypes: { 'ReactPropName':PropTypes.* }});
+
+  //BONUS: Updated to add module.exports = requireNativeComponent('MyCustomReactViewManager', {name: 'message',propTypes: { 'ReactPropName':PropTypes.String }});
+
+  //If View Manager have react properties the code will be module.exports = requireNativeComponent('MyCustomReactViewManager', {name: 'AnynameWillDoItsforLog',propTypes: { 'ReactPropName':PropTypes.* }}); -- Check PropTypes.* is from ReactJS site.
 ```
 8. Use it in the main Javascript code and remember to set the height/width.
 ```javascript
@@ -63,13 +66,19 @@ These are the steps:
      return
       ...
       <CustomView style={{height:200, width:200}}/>
+      //BONUS: Updated to create <CustomView style={{height:200, width:200}} message={"Hi there"}/>
       ...;
     }
 ```
 
 ## Run it.
-1. Once done, do the command.
+1. Open android and start a device emulator.
+2. Once done, do the command.
 
 ```
 react-native run-android.
 ```
+
+3. Click the button and see the toast box appearing.
+4. If there are changes in android. You need to run 'react-native run-android' again.
+5. If you opened it in Android Studio, there will be messages in LogCat. Filter it by "ANDROID_SAMPLE_UI" to get more info.

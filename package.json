@@ -8,6 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "babel-preset-react-native": "^5.0.0",
     "react": "16.8.6",
     "react-native": "0.60.4"
   },

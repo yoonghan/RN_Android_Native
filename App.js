@@ -9,6 +9,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  Button,
   View
 } from 'react-native';
 import CustomView from './CustomView.js';
@@ -24,7 +25,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <CustomView style={{height:200, width:200}}/>
+        <CustomView style={{height:200, width:200}} message={"Custom Message"}/>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
