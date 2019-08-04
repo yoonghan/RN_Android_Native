@@ -30,8 +30,8 @@ This project assumes that the React Native project is already created.
 ![alt text](gitimg/sample.png?raw=true)
 
 
-## Steps
-These are the steps:
+## Learn
+These is how the bridge for the button is created.
 1. Open Android studio and point to android/ folder within this project. Allow gradle to run and fix those android error if exist. If the code works, the green "Play"/"Debug" button is enabled in Android Studio. Else you will need to make time to fix this...this is the most difficult part for new Android coders.
 2. Create the XML (or create a layout via android code) of the layout, Sample is in res/layout/multiplecamerastreamlayout.xml
 3. Create a View to inflate the XML. Sample is in com.sample_android_ui.CustomView. *BONUS:* Added a click action.
