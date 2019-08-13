@@ -9,8 +9,12 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.uimanager.annotations.ReactProp;
+import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.views.image.ReactImageView;
 import com.sample_android_ui.R;
 
@@ -46,8 +50,29 @@ public class CustomView  extends LinearLayout{
                 Log.i("Button get clicked", "ANDROID_SAMPLE_UI");
                 Toast toast = Toast.makeText(_context, message, Toast.LENGTH_LONG);
                 toast.show();
+
+                //Also trigger an event so that javascript can retrieve it.
+                callNativeEvent();
             }
         });
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    //PART 3: Added Receive Event.
+    public void callNativeEvent() {
+        Log.i("Call Native Event", "ANDROID_SAMPLE_UI");
+        //This output a message to Javascript as an event.
+        WritableMap event = Arguments.createMap();
+        event.putString("customNativeEventMessage", "Emitted an event"); //Emmitting an event to Javascript
+
+        //Create a listener where if there method topChange, send the event to the js.
+        ReactContext reactContext = (ReactContext)getContext();
+        reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
+                getId(),
+                "nativeClick",    //name hast to be same as getExportedCustomDirectEventTypeConstants
+                event);
+    }
 }

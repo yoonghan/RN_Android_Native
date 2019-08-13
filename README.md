@@ -70,6 +70,13 @@ These is how the bridge for the button is created.
       ...;
     }
 ```
+9. Added an event that receive onClick message, from native code. I.e. from Native code to React Native.
+```javascript
+  <CustomView
+    ...
+    onClick={this._clickEvent}
+    />
+```
 
 ## Run it.
 1. Open android and start a device emulator.
@@ -82,3 +89,4 @@ react-native run-android.
 3. Click the button and see the toast box appearing.
 4. If there are changes in android. You need to run 'react-native run-android' again.
 5. If you opened it in Android Studio, there will be messages in LogCat. Filter it by "ANDROID_SAMPLE_UI" to get more info.
+6. If compilation/deployment complains "missing debug.keystore" or "invalid keystore"; either generate a new keystore, or use the ready created *debug.keystore*. The generated keystore has the password or *secret*, keyalias of *debug*; this is under Build->Generate Signed Bundle/Apk. Set deploy build variant as debug.

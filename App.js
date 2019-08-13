@@ -22,10 +22,20 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component<{}> {
+
+  //PART 3: Added event receive, i.e. click from native button.
+  _clickEvent(event) {
+    console.warn(event.nativeEvent.customNativeEventMessage);
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <CustomView style={{height:200, width:200}} message={"Custom Message"}/>
+        <CustomView
+          style={{height:200, width:200}}
+          message={"Custom Message"}
+          onClick={this._clickEvent}
+          />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
