@@ -104,9 +104,15 @@ react-native run-android.
 
 ## Issues
 1. If you encountered the error **error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|** when starting android, downgrade nodejs to 12.10.0
-2. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4.
+2. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4. The command is
+```
+  npm uninstall -g react-native
+  npm install -g react-native@0.60.4
+```
+
 3. When the application starts as blank. Do these steps.
-  a. Close the app sample_reactnative in android.
-  b. Open the app again.
-  c. Press R and R again.
+
+ a. Close the app sample_reactnative in android.
+ b. Open the app again.
+ c. Press R and R again.
   d. Wait few seconds (10 seconds)
