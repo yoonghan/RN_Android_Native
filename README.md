@@ -3,7 +3,7 @@ This project is to show the integration between React Native with a custom nativ
 [Reference](https://facebook.github.io/react-native/docs/native-components-android.html)
 
 ## Base installation
-1. Install node js of version 12.10.0[Reference](https://nodejs.org/en/download/releases/)
+1. Install node js of version 12.10.0. [Reference](https://nodejs.org/en/download/releases/)
 2. Install react native with command
 ```
 npm install -g react-native@0.60.4
@@ -111,8 +111,7 @@ react-native run-android.
 ```
 
 3. When the application starts as blank. Do these steps.
-
- a. Close the app sample_reactnative in android.
- b. Open the app again.
- c. Press R and R again.
-  d. Wait few seconds (10 seconds)
+  1. Close the app sample_reactnative in android.
+  2. Open the app again.
+  3. Press R and R again.
+  4. Wait few seconds (10 seconds)
