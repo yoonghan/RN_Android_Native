@@ -111,7 +111,7 @@ react-native run-android.
 ```
 
 3. When the application starts as blank. Do these steps.
-  1. Close the app sample_reactnative in android.
-  2. Open the app again.
-  3. Press R and R again.
-  4. Wait few seconds (10 seconds)
+   a. Close the app sample_reactnative in android.
+   b. Open the app again.
+   c. Press R and R again.
+   d. Wait few seconds (10 seconds)
