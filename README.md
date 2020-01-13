@@ -2,6 +2,13 @@
 This project is to show the integration between React Native with a custom native Android component.
 [Reference](https://facebook.github.io/react-native/docs/native-components-android.html)
 
+## Base installation
+1. Install node js of version 12.10.0[Reference](https://nodejs.org/en/download/releases/)
+2. Install react native with command
+```
+npm install -g react-native@0.60.4
+```
+
 ## Installation
 1. Clone the project.
 2. Cd to the folder and run the command
@@ -19,6 +26,9 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+#Windows
+set ANDROID_SDK_ROOT=C:\Users\<User name>\AppData\Local\Android\Sdk
 ```
 
 ## Goals
@@ -90,3 +100,13 @@ react-native run-android.
 4. If there are changes in android. You need to run 'react-native run-android' again.
 5. If you opened it in Android Studio, there will be messages in LogCat. Filter it by "ANDROID_SAMPLE_UI" to get more info.
 6. If compilation/deployment complains "missing debug.keystore" or "invalid keystore"; either generate a new keystore, or use the ready created *debug.keystore*. The generated keystore has the password or *secret*, keyalias of *debug*; this is under Build->Generate Signed Bundle/Apk. Set deploy build variant as debug.
+
+
+## Issues
+1. If you encountered the error **error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|** when starting android, downgrade nodejs to 12.10.0
+2. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4.
+3. When the application starts as blank. Do these steps.
+  a. Close the app sample_reactnative in android.
+  b. Open the app again.
+  c. Press R and R again.
+  d. Wait few seconds (10 seconds)
