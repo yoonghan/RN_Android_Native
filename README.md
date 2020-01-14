@@ -105,6 +105,11 @@ react-native run-android.
 Due to major changes for RN, changing NodeJS and React Native version will impact the project's runtime.
 
 1. If compilation/deployment complains "missing debug.keystore" or "invalid keystore"; either generate a new keystore using Android, or copy an existing React Native's *debug.keystore* into this project. If using Android studio then generated keystore has the password or *secret*, keyalias of *debug*. Generate it via the menu Build->Generate Signed Bundle/Apk and Set deploy build variant as debug.
+```
+cp <some exiting RN folder>/android/app/debug.keystore android/app/
+#Windows command
+#copy ..\<some exiting>\android\app\debug.keystore android\app\
+```
 2. If you encountered the error **error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|** when starting android, downgrade nodejs to 12.10.0.
 3. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4. The command is
 ```
@@ -113,7 +118,6 @@ Due to major changes for RN, changing NodeJS and React Native version will impac
 ```
 
 4. When the application starts as blank, this is a common issue in RN's android app. In theory, the "react-native start" needs to start before installing the application into android. Do these steps:
-
   1. Close the app sample_reactnative in Android.
   2. Open the sample_reactnative app again.
   3. Press R and R key again. This refreshes the page.
