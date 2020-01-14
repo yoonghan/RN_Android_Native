@@ -114,7 +114,7 @@ Due to major changes for RN, changing NodeJS and React Native version will impac
 
 4. When the application starts as blank, this is a common issue in RN's android app. In theory, the "react-native start" needs to start before installing the application into android. Do these steps:
 
-a. Close the app sample_reactnative in Android.
-b. Open the sample_reactnative app again.
-c. Press R and R key again. This refreshes the page.
-d. Wait few seconds (10 seconds)
+  1. Close the app sample_reactnative in Android.
+  2. Open the sample_reactnative app again.
+  3. Press R and R key again. This refreshes the page.
+  4. Wait few seconds (10 seconds)
