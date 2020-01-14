@@ -32,7 +32,7 @@ set ANDROID_SDK_ROOT=C:\Users\<User name>\AppData\Local\Android\Sdk
 ```
 
 ## Goals
-Let's say there is a layout in pure android, e.g. a button. This is the walkthrough to get the module working in React Native project.
+Create a layout in pure android, I.E. a native android button. This is the walkthrough to get the module working in React Native project.
 This project assumes that the React Native project is already created.
 
 *NOTE*: If you can master this, the React Native Module will be a walk in the park.
@@ -98,21 +98,23 @@ react-native run-android.
 
 3. Click the button and see the toast box appearing.
 4. If there are changes in android. You need to run 'react-native run-android' again.
-5. If you opened it in Android Studio, there will be messages in LogCat. Filter it by "ANDROID_SAMPLE_UI" to get more info.
-6. If compilation/deployment complains "missing debug.keystore" or "invalid keystore"; either generate a new keystore, or use the ready created *debug.keystore*. The generated keystore has the password or *secret*, keyalias of *debug*; this is under Build->Generate Signed Bundle/Apk. Set deploy build variant as debug.
+5. If you opened it in Android Studio, there will be messages in **LogCat** tab. Filter it by "ANDROID_SAMPLE_UI" to get more information.
 
 
 ## Issues
-1. If you encountered the error **error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|** when starting android, downgrade nodejs to 12.10.0
-2. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4. The command is
+Due to major changes for RN, changing NodeJS and React Native version will impact the project's runtime.
+
+1. If compilation/deployment complains "missing debug.keystore" or "invalid keystore"; either generate a new keystore using Android, or copy an existing React Native's *debug.keystore* into this project. If using Android studio then generated keystore has the password or *secret*, keyalias of *debug*. Generate it via the menu Build->Generate Signed Bundle/Apk and Set deploy build variant as debug.
+2. If you encountered the error **error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|** when starting android, downgrade nodejs to 12.10.0.
+3. If you "react-native start" command keeps failing. Downgrade react-native to 0.60.4. The command is
 ```
   npm uninstall -g react-native
   npm install -g react-native@0.60.4
 ```
 
-3. When the application starts as blank. Do these steps.
+4. When the application starts as blank, this is a common issue in RN's android app. In theory, the "react-native start" needs to start before installing the application into android. Do these steps:
 
-   a)Close the app sample_reactnative in android.
-   b)Open the app again.
-   c)Press R and R again.
-   d)Wait few seconds (10 seconds)
+a. Close the app sample_reactnative in Android.
+b. Open the sample_reactnative app again.
+c. Press R and R key again. This refreshes the page.
+d. Wait few seconds (10 seconds)
