@@ -4,9 +4,11 @@ This project is to show the integration between React Native with a custom nativ
 
 ## Base installation
 1. Install node js of version 12.10.0. [Reference](https://nodejs.org/en/download/releases/)
-2. Install react native with command
+2. ~~Install react native with command~~
 ```
-npm install -g react-native@0.60.4
+## Use npx command instead!
+# npm install -g react-native@0.60.4
+
 ```
 
 ## Installation
@@ -93,7 +95,9 @@ These is how the bridge for the button is created.
 2. Once done, do the command.
 
 ```
-react-native run-android.
+npx react-native run-android
+## Old way was to use global..but version conflict is too prone.
+# react-native run-android.
 ```
 
 3. Click the button and see the toast box appearing.
