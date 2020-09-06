@@ -42,7 +42,7 @@ public class MyCustomReactViewManager extends SimpleViewManager<CustomView> {
     @javax.annotation.Nullable
     @Override
     public Map<String, Object> getExportedCustomDirectEventTypeConstants() {
-        //For frequent updates like on change or movement, look at getExportedCustomBubblingEventTypeConstants
+        //For frequent updates like on change or movement, read about getExportedCustomBubblingEventTypeConstants
         Log.i("Register Native Click", "ANDROID_SAMPLE_UI");
         return MapBuilder.<String, Object>builder()
                 .put("nativeClick", //Same as name registered with receiveEvent

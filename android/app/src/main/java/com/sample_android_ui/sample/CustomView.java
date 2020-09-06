@@ -35,6 +35,7 @@ public class CustomView  extends LinearLayout{
     }
 
     public void init() {
+        //Part 1: Don't need to copy BONUS part, this alone already integrate Android UI to RN native.
         inflate(this.context, R.layout.multiplecamerastreamlayout, this);
         //This can be viewed in Android Studio's Log Cat.
         Log.i("Inflated XML", "ANDROID_SAMPLE_UI");
@@ -51,8 +52,10 @@ public class CustomView  extends LinearLayout{
                 Toast toast = Toast.makeText(_context, message, Toast.LENGTH_LONG);
                 toast.show();
 
-                //Also trigger an event so that javascript can retrieve it.
+                //PART 3: This is a sample to receive callback/events from Android to RN's JS and visa versa.
+                //Save to remove if don't need to care events sent
                 callNativeEvent();
+                //END OF PART 3
             }
         });
     }
@@ -68,11 +71,11 @@ public class CustomView  extends LinearLayout{
         WritableMap event = Arguments.createMap();
         event.putString("customNativeEventMessage", "Emitted an event"); //Emmitting an event to Javascript
 
-        //Create a listener where if there method topChange, send the event to the js.
+        //Create a listener where that emits/send the text to JS when action is taken.
         ReactContext reactContext = (ReactContext)getContext();
         reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(
                 getId(),
-                "nativeClick",    //name hast to be same as getExportedCustomDirectEventTypeConstants
+                "nativeClick",    //name has to be same as getExportedCustomDirectEventTypeConstants in MyCustomReactViewManager
                 event);
     }
 }

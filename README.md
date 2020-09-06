@@ -34,19 +34,22 @@ set ANDROID_SDK_ROOT=C:\Users\<User name>\AppData\Local\Android\Sdk
 ```
 
 ## Goals
-Create a layout in pure android, I.E. a native android button. This is the walkthrough to get the module working in React Native project.
-This project assumes that the React Native project is already created.
+1. Create a layout in pure android, I.E. a native android button. This is the walkthrough to get the module working in React Native project.
+2. This project assumes that the React Native project is already created. If not do:
+```
+npx react-native init AwesomeProject
+```
 
-*NOTE*: If you can master this, the React Native Module will be a walk in the park.
+*NOTE*: If you can master this, understanding React Native Module in the official website will be a walk in the park.
 
 ![alt text](gitimg/sample.png?raw=true)
 
 
 ## Learn
 These is how the bridge for the button is created.
-1. Open Android studio and point to android/ folder within this project. Allow gradle to run and fix those android error if exist. If the code works, the green "Play"/"Debug" button is enabled in Android Studio. Else you will need to make time to fix this...this is the most difficult part for new Android coders.
-2. Create the XML (or create a layout via android code) of the layout, Sample is in res/layout/multiplecamerastreamlayout.xml
-3. Create a View to inflate the XML. Sample is in com.sample_android_ui.CustomView. *BONUS:* Added a click action.
+1. Start Android studio and open ${PROJECT_NAME}/android/ folder within this project. Allow gradle to run. Fix those android error if exist. If compilation works, the green "Play"/"Debug" button is enabled in Android Studio. Else you will need to make time to fix this...this is the most difficult part for new Android coders.
+2. Create the XML (or create a layout via android code) of the layout, Sample is in res/layout/multiplecamerastreamlayout.xml. This is pure Android code which describes an XML to UI.
+3. Create a Android view to inflate(changing XML to UI) the XML. Sample is in com.sample_android_ui.CustomView. *BONUS:* Added a click action.
 4. Create a View Manager that will link the Custom View, here is the place to expose the properties. Sample is in com.sample_android_ui.MyCustomReactViewManager. *BONUS:* Added an optional @ReactProps for parameter passing.
 5. Create a ReactPackage and add the react ViewManager into "createViewManagers" method. Sample in com.sample_android_uid.MyCustomPackage.
 6. Add the Package into MainApplication to tie the ReactPackage to the loader. Sample in MainApplication.java
@@ -78,6 +81,7 @@ These is how the bridge for the button is created.
      return
       ...
       <CustomView style={{height:200, width:200}}/>
+      //It can be pointed in issue list (thanks) using flex will make it full screen. Else use height:null
       //BONUS: Updated to create <CustomView style={{height:200, width:200}} message={"Hi there"}/>
       ...;
     }
@@ -115,7 +119,7 @@ cp <some exiting RN folder>/android/app/debug.keystore android/app/
 #copy ..\<some exiting>\android\app\debug.keystore android\app\
 ```
 2. If you encountered the error **"error Invalid regular expression: /(.\fixtures\.|node_modules[\]react[\]dist[\].|"** when starting android, downgrade nodejs to 12.10.0.
-3. If "react-native start" command keeps failing. Downgrade react-native to 0.60.4. The command to downgrade is:
+3. If "react-native start" command keeps failing. Downgrade react-native to 0.60.4. Else use "npx react-native start", which uses package.json defined react-native version instead of global. The command to downgrade is:
 ```
   npm uninstall -g react-native
   npm install -g react-native@0.60.4
